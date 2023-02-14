@@ -44,7 +44,7 @@ The system automatically will be able to upload created image and metadata file 
 
 We will review the NFT contract creation and deploy it on the Celo blockchain.
 
-# Preparation
+## Preparation
 
 Let's start by creating a new NodeJS project. To do this, in the previously created folder, create a **package.json** file with the following content:
 
@@ -136,7 +136,7 @@ node index.js
 ```
 If there are no errors in the console, you did everything right.
 
-# Image composing in JS
+## Image composing in JS
 
 Our first task will be to create an image that will consist of a QR code and text, we will get the following result:
 
@@ -219,7 +219,7 @@ The result of the script:
 
 [<p align="center"><img src="img/image2.png"></p>][def]
 
-# Uploading an image using pinata API.
+## Uploading an image using pinata API.
 
 > API is a way for two or more computer programs to communicate with each other using requests.
 
@@ -235,7 +235,7 @@ First, we need to register on [pinata](https://www.pinata.cloud) and generate a 
 
 For our next steps we need only the **JWT** key.
 
-### Note. To send a file to Pinata, it must be of the blob type, for this we need to modify the previously written renderQRcode function.
+> **_NOTE:_** To send a file to Pinata, it must be of the blob type, for this we need to modify the previously written renderQRcode function.
 
 ```js
 // we added a new parameter, type of the result, by default it is blob
@@ -287,7 +287,7 @@ const uploadTicketImage = async (ticket_id) => {
 }
 ```
 
-### Note. I recommend storing the keys in a separate secure file. I saved it in a variable just for example, never do that in real projects.
+> **_NOTE:_** I recommend storing the keys in a separate secure file. I saved it in a variable just for example, never do that in real projects.
 
 Let's output the result of the function to the console using the following code:
 
@@ -309,7 +309,7 @@ Let's open the pinata control panel and test our image.
 You can also look at our image at this link. We will need this link later.
 > https://gateway.pinata.cloud/ipfs/[YOUR IPFS HASH]
 
-# Uploading of metadata file to Pinata.
+## Uploading the metadata file to Pinata.
 
 To generate an NFT, we need to store a metadata file that contains a path to our image.
 
@@ -372,7 +372,7 @@ At this point, we have successfully generated our image and saved it and the met
 
 The next step will be generating an NFT using the IPFS hash obtained above.
 
-# Deploying of an NFT contract.
+## Deploying our NFT contract.
 
 To begin with, we need to write our smart contract in the Solidity programming language. We will use the IDE [Remix](http://remix.ethereum.org/).
 
