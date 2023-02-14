@@ -1,4 +1,4 @@
-# AUTOMATED CINEMA TICKET NFT CREATION WITH QR LINK ON THE CELO BLOCKCHAIN.
+# HOW TO CREATE AN AUTOMATED CINEMA TICKET NFT CREATION DAPP WITH QR LINK ON THE CELO BLOCKCHAIN.
 
 ## INTRODUCTION
 
@@ -10,20 +10,20 @@ Main advantages of using blockchains:
 - Automation capability.
 
 ### What is the Celo Blockchain? 
-Celo is a carbon-negative, permissionless, layer-1 blockchain with low gas fees. 
+[Celo](https://celo.org/) is a carbon-negative, permissionless, layer-1 blockchain with low gas fees. 
 
 The Celo ecosystem consists of a decentralized, proof-of-stake blockchain technology stack (the Celo platform), the Celo governance asset, and several stable assets that make it easy for real-world users to use digital assets.
 
 ### What is a Smart Contract? 
 A smart contract is a sort of program that encodes business logic and operates on a dedicated virtual machine embedded in a blockchain or other distributed ledger.
-Advantages of using Smart Contracts:
+Advantages of using smart contracts:
 - Autonomy. Smart contracts are performed automatically by the network and reduce the need for a third party to manage transactions between businesses.
 - Processing speed. Smart contracts can improve the processing speed of business processes that run across multiple enterprises.
 - Cost efficiency. Smart contracts promise to automate business processes that span organizational boundaries.
 
 ## REQUIREMENT
 - A code editor to write JS code.
-- Installed [NodeJS](https://nodejs.org/en)
+- [NodeJS](https://nodejs.org/en) installed.
 - An Internet Browser and a good internet connection.
   
 ## PREREQUISITE 
@@ -35,7 +35,7 @@ Advantages of using Smart Contracts:
 - Creation of a simple NodeJS webpack server.
 - Composing images and text in JS.
 - Generating QR codes in JS.
-- Saving files on the IPFS storage pinata using its API.
+- Saving files on the [IPFS](https://ipfs.tech/) storage using the [Pinata](https://www.pinata.cloud/) API.
  
 ## What We’ll Be Building
 We will create a system that automatically generates an image that composes a generated QR code with the link we need (in our case, a link to a cinema ticket) and a text label. 
@@ -159,7 +159,7 @@ import FormData from "form-data";
 import { createCanvas, loadImage } from "canvas";
 ```
 
-Let's write a function that will create an image and return it's data url.
+Let's write a function that will create an image and return it's data URL.
 
 ```js
 const renderQRcode = async (ticket_id) => {
@@ -219,7 +219,7 @@ The result of the script:
 
 [<p align="center"><img src="img/image2.png"></p>][def]
 
-## Uploading an image using pinata API.
+## Uploading an image using the Pinata API.
 
 > API is a way for two or more computer programs to communicate with each other using requests.
 
@@ -229,13 +229,13 @@ With Pinata, we can store our files as IPFS.
 
 > IPFS is a distributed file storage protocol that allows computers all over the globe to store and serve files as part of a giant peer-to-peer network.
 
-First, we need to register on [pinata](https://www.pinata.cloud) and generate a new key to access the API. Our key must have an API Endpoint Access for pinFiletoIPFS and pinJSONToIPFS.
+First, we need to register on [Pinata](https://www.pinata.cloud) and generate a new key to access the API. Our key must have an API Endpoint Access for pinFiletoIPFS and pinJSONToIPFS.
 
 [<p align="center"><img src="img/image3.png" width="60%"></p>][def]
 
 For our next steps we need only the **JWT** key.
 
-> **_NOTE:_** To send a file to Pinata, it must be of the blob type, for this we need to modify the previously written renderQRcode function.
+> **_NOTE:_** To send a file to Pinata, it must be of the `blob` type, for this we need to modify the previously written renderQRcode function.
 
 ```js
 // we added a new parameter, type of the result, by default it is blob
