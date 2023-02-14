@@ -2,19 +2,19 @@
 
 ## INTRODUCTION
 
-### What is BlockChain all about?
+### What is Blockchain all about?
 Blockchain is a method of recording information that makes it impossible or difficult for the system to be changed, hacked, or manipulated.
 Main advantages of using blockchains:
 - High security.
-- Decentrilized system.
+- Decentralized system.
 - Automation capability.
 
-### What is celo Blockchain? 
+### What is the Celo Blockchain? 
 Celo is a carbon-negative, permissionless, layer-1 blockchain with low gas fees. 
 
-The Celo ecosystem consists of a decentralized, proof-of-stake blockchain technology stack (the Celo platform), CELO governance asset, and several stable assets that make it easy for real-world users to use digital assets.
+The Celo ecosystem consists of a decentralized, proof-of-stake blockchain technology stack (the Celo platform), the Celo governance asset, and several stable assets that make it easy for real-world users to use digital assets.
 
-### What is Smart Contract? 
+### What is a Smart Contract? 
 A smart contract is a sort of program that encodes business logic and operates on a dedicated virtual machine embedded in a blockchain or other distributed ledger.
 Advantages of using Smart Contracts:
 - Autonomy. Smart contracts are performed automatically by the network and reduce the need for a third party to manage transactions between businesses.
@@ -24,31 +24,31 @@ Advantages of using Smart Contracts:
 ## REQUIREMENT
 - A code editor to write JS code.
 - Installed [NodeJS](https://nodejs.org/en)
-- An Internet Browser and good internet connection.
+- An Internet Browser and a good internet connection.
   
 ## PREREQUISITE 
 - Basic knowledge of Javascript.
 - Basic understanding of how Blockchain works.
 - Basic knowledge of [Solidity](https://docs.soliditylang.org).
   
-##  What you will learn after this tutorial
-- Creating of simple nodeJS webpack server.
+## What you will learn after this tutorial
+- Creation of a simple NodeJS webpack server.
 - Composing images and text in JS.
-- Generating qr codes in JS.
-- Saving files on IPFS storage pinata using it's API.
+- Generating QR codes in JS.
+- Saving files on the IPFS storage pinata using its API.
  
 ## What We’ll Be Building
-We will create a system that automatically generates an image that composes a generated qr code with the link we need (in our case, a link to a cinema ticket) and text label. 
+We will create a system that automatically generates an image that composes a generated QR code with the link we need (in our case, a link to a cinema ticket) and a text label. 
 
-The system automatically will be able to upload created image and metadata file for it to the ipfs manager pinata for further NFT generation.
+The system automatically will be able to upload created image and metadata file for it to the IPFS manager pinata for further NFT generation.
 
-We will review NFT contract creation and deploying it on CELO blockchain.
+We will review the NFT contract creation and deploy it on the Celo blockchain.
 
 # Preparation
 
-Let's start by creating a new nodeJS project. To do this, in the previously created folder, create a **package.json** file with the following content:
+Let's start by creating a new NodeJS project. To do this, in the previously created folder, create a **package.json** file with the following content:
 
-```js
+```json
 {
    "license": "MIT",
    "private": true,
@@ -71,7 +71,7 @@ So we installed [webpack](https://webpack.js.org), [axios](https://axios-http.co
 
 Use the following command in the console to install the required libraries.
 
-```js
+```bash
 npm install
 ```
 
@@ -115,10 +115,10 @@ let app = new webpackDevServer(webpack(webpackConfig), webpackDevServerOptions);
 app.listen(process.env.PORT || 3000, () => console.log(`App listening on ${port}`));
 ```
 
-Now we only need to create the **index.html** file with empty markup and empty **main.js**.
+Now we only need to create the **index.html** file with an empty markup and an empty **main.js** file.
 
 index.html content.
-```js
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,22 +131,22 @@ index.html content.
 ```
 
 We have created all the necessary files so let's start our server using 
-```js
+```bash
 node index.js
 ```
 If there are no errors in the console, you did everything right.
 
 # Image composing in JS
 
-Our first task will be to create an image that will consist of a qr code and text, we will get the following result:
+Our first task will be to create an image that will consist of a QR code and text, we will get the following result:
 
 [<p align="center"><img src="img/image1.png"></p>][def]
 
-In the process of implementing this project, I tried to find information on the Internet on how to compose an image (qr code) and the text I needed correctly, but I did not find a single article on this topic.
+In the process of implementing this project, I tried to find information on the Internet on how to compose an image (QR code) and the text I needed correctly, but I did not find a single article on this topic.
 
 So I decided to do it all with the help of canvases.
 
-> Canvas - element is used to draw graphics, on the fly, via JavaScript. element is only a container for graphics. You must use JavaScript to actually draw the graphics.
+> Canvas - element is used to draw graphics, on the fly, via JavaScript. An element is only a container for graphics. You must use JavaScript to draw the graphics.
 
 With canvases, we can perform other operations with images, such as composing them. 
 
@@ -223,19 +223,19 @@ The result of the script:
 
 > API is a way for two or more computer programs to communicate with each other using requests.
 
-> Pinata is a media management company for the builders and creators of all kinds in web3.
+> Pinata is a media management company for builders and creators of all kinds in web3.
 
-With pinata we can store our files as IPFS.
+With Pinata, we can store our files as IPFS.
 
 > IPFS is a distributed file storage protocol that allows computers all over the globe to store and serve files as part of a giant peer-to-peer network.
 
-First we need to register on [pinata](https://www.pinata.cloud) and generate a new key to access the api. Our key must have API Endpoint Access for pinFiletoIPFS and pinJSONToIPFS.
+First, we need to register on [pinata](https://www.pinata.cloud) and generate a new key to access the API. Our key must have an API Endpoint Access for pinFiletoIPFS and pinJSONToIPFS.
 
 [<p align="center"><img src="img/image3.png" width="60%"></p>][def]
 
-For our next steps we need only **JWT** key.
+For our next steps we need only the **JWT** key.
 
-### Note. To send a file to pinata, it must be of the blob type, for this we need to modify previously written renderQRcode function.
+### Note. To send a file to Pinata, it must be of the blob type, for this we need to modify the previously written renderQRcode function.
 
 ```js
 // we added a new parameter, type of the result, by default it is blob
@@ -259,7 +259,7 @@ const renderQRcode = async (ticket_id, type="blob") => {
 
 Now, in the absence of the second parameter, we will receive a blob object of our image. But, we can always execute a function with the second parameter "data" to return a data-url.
 
-As before, let's write a new function in our main.js file. We will use the code from the pinata official [documentation](https://docs.pinata.cloud/pinata-api/pinning/pin-file-or-directory).
+As before, let's write a new function in our main.js file. We will use the code from the Pinata official [documentation](https://docs.pinata.cloud/pinata-api/pinning/pin-file-or-directory).
 
 ```js
 // upload image to pinata
@@ -309,7 +309,7 @@ Let's open the pinata control panel and test our image.
 You can also look at our image at this link. We will need this link later.
 > https://gateway.pinata.cloud/ipfs/[YOUR IPFS HASH]
 
-# Uploading of metadata file to pinata.
+# Uploading of metadata file to Pinata.
 
 To generate an NFT, we need to store a metadata file that contains a path to our image.
 
@@ -348,7 +348,7 @@ const uploadJson = async (ticket_id, hash) => {
 }
 ```
 
-Again, rewrite the anonymous function for output to the console.
+Again, we will rewrite the anonymous function for output to the console.
 
 ```js
 // we need to use anonymous async function
@@ -368,19 +368,19 @@ The result of the script:
 
 Let's check the contents of the uploaded metadata file. [Here](https://gateway.pinata.cloud/ipfs/bafkreicqgnqvugovq5vkjsekxr3cn5rjf5s5qdy7g5ne4tn5ahees4cd4a) we can make sure that the image link is identical to the one we got earlier.
 
-At this point, we have successfully generated our image, saved it and the metadata of the image to pinata.
+At this point, we have successfully generated our image and saved it and the metadata of the image to Pinata.
 
-The next step will be generating of an NFT using the ipfs hash obtained above.
+The next step will be generating an NFT using the IPFS hash obtained above.
 
 # Deploying of an NFT contract.
 
-To begin with, we need to write a contract in the solidity programming language. We will use IDE [remix](http://remix.ethereum.org/).
+To begin with, we need to write our smart contract in the Solidity programming language. We will use the IDE [Remix](http://remix.ethereum.org/).
 
-We also need a metamask wallet with Celo Alfajores testnet added and [test tokens](https://faucet.celo.org)
+We also need a Metamask wallet with the Celo Alfajores testnet added and [test tokens](https://faucet.celo.org)
 
 Let's create a file ticket.sol in the remix with the following content:
 
-```js
+```solidity
 //SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.10;
 
@@ -433,19 +433,19 @@ Next, select the compiler version(In our case it is 0.8.10) and compile our cont
 
 [<p align="center"><img src="img/image7.png" width="40%"></p>][def]
 
-Next, we need to deploy our contract. To do this, go to the appropriate tab, connect a metamask wallet and click the **Deploy** button.
+Next, we need to deploy our contract. To do this, go to the appropriate tab, connect a Metamask wallet, and click the **Deploy** button.
 
 [<p align="center"><img src="img/image8.png" width="40%"></p>][def]
 
-We need to pay gas taxes to deploy a contract. Next, we can refer to the methods of our contract.
+We need to pay gas fees to deploy a contract. Next, we can refer to the methods of our contract.
 
 [<p align="center"><img src="img/image9.png" width="60%"></p>][def]
 
-Let's take the ipfs hash of the previously created ticket1_metadata.json file
+Let's take the IPFS hash of the previously created ticket1_metadata.json file
 
 > bafkreicqgnqvugovq5vkjsekxr3cn5rjf5s5qdy7g5ne4tn5ahees4cd4a.
 
-Link to the pinata gateway will be
+The link to the pinata gateway will be
 
 > https://gateway.pinata.cloud/ipfs/bafkreicqgnqvugovq5vkjsekxr3cn5rjf5s5qdy7g5ne4tn5ahees4cd4a
 
@@ -457,7 +457,7 @@ We will see the result of execution.
 
 [<p align="center"><img src="img/image11.png"></p>][def]
 
-We are interested in the **transaction_hash** value. Copy it and find this transaction on the [celo explorer website](https://explorer.celo.org/alfajores).
+We are interested in the **transaction_hash** value. Copy it and find this transaction on the [Celo explorer website](https://explorer.celo.org/alfajores).
 
 We can see our transaction. Let's click on the ID of our NFT to view it.
 
@@ -467,9 +467,9 @@ A view of our NFT.
 
 [<p align="center"><img src="img/image13.png"></p>][def]
 
-My greetings, we have successfully generated an image containing qr code and text, uploaded it and its metadata file to ipfs server pinata, minted NFT from this image.
+My greetings, we have successfully generated an image containing a QR code and text, uploaded it and its metadata file to the IPFS server through Pinata, and minted an NFT from this image.
 
-P.S. You can find all the files used in this tutorial on [this link](https://github.com/nadiarei/celo-js-tutorial/sources).
-Real project where i used this script - [celo-react-cinema-dapp](https://github.com/nadiarei/celo-react-cinema-dapp)
+P.S. You can find all the files used in this tutorial using [this link](https://github.com/nadiarei/celo-js-tutorial/sources).
+A real project where I used this script - [celo-react-cinema-dapp](https://github.com/nadiarei/celo-react-cinema-dapp)
 
 [def]: img
