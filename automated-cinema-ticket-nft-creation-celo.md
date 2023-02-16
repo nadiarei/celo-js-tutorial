@@ -1,43 +1,61 @@
-# HOW TO CREATE AN AUTOMATED CINEMA TICKET NFT CREATION DAPP WITH QR LINK ON THE CELO BLOCKCHAIN.
+# How To Create An Automated Cinema Ticket NFT Creation Dapp with QR Link On The Celo Blockchain
 
-## INTRODUCTION
+_Estimated reading time: **10 minutes**_
 
-### What is Blockchain all about?
+## Table of contents
+  * [Introduction](#introduction)
+    + [What is the Blockchain all about?](#what-is-the-blockchain-all-about)
+    + [What is the Celo Blockchain?](#what-is-the-celo-blockchain)
+    + [What is a Smart Contract?](#what-is-a-smart-contract)
+  * [Requirements](#requirements)
+  * [Prerequisites](#prerequisites)
+  * [What you will learn in this tutorial](#what-you-will-learn-in-this-tutorial)
+  * [What we will be building](#what-we-will-be-building)
+  * [Preparation](#preparation)
+  * [Image composing in JS](#image-composing-in-js)
+  * [Uploading an image using the Pinata API.](#uploading-an-image-using-the-pinata-api)
+  * [Uploading the metadata file to Pinata.](#uploading-the-metadata-file-to-pinata)
+  * [Deploying our NFT contract.](#deploying-our-nft-contract)
+  * [Conclusion](#conclusion)
+
+## Introduction
+
+### What is the Blockchain all about?
 Blockchain is a method of recording information that makes it impossible or difficult for the system to be changed, hacked, or manipulated.
-Main advantages of using blockchains:
+The main advantages of using blockchains are:
 - High security.
 - Decentralized system.
 - Automation capability.
 
 ### What is the Celo Blockchain? 
-[Celo](https://celo.org/) is a carbon-negative, permissionless, layer-1 blockchain with low gas fees. 
+The [Celo](https://celo.org/) blockchain is a carbon-negative, permissionless, layer-1 blockchain with low gas fees. 
 
 The Celo ecosystem consists of a decentralized, proof-of-stake blockchain technology stack (the Celo platform), the Celo governance asset, and several stable assets that make it easy for real-world users to use digital assets.
 
 ### What is a Smart Contract? 
 A smart contract is a sort of program that encodes business logic and operates on a dedicated virtual machine embedded in a blockchain or other distributed ledger.
 Advantages of using smart contracts:
-- Autonomy. Smart contracts are performed automatically by the network and reduce the need for a third party to manage transactions between businesses.
-- Processing speed. Smart contracts can improve the processing speed of business processes that run across multiple enterprises.
-- Cost efficiency. Smart contracts promise to automate business processes that span organizational boundaries.
+- Autonomy: Smart contracts are performed automatically by the network and reduce the need for a third party to manage transactions between businesses.
+- Processing speed: Smart contracts can improve the processing speed of business processes that run across multiple enterprises.
+- Cost efficiency: Smart contracts promise to automate business processes that span organizational boundaries.
 
-## REQUIREMENT
-- A code editor to write JS code.
+## Requirements
+- A code editor to write JavaScript code.
 - [NodeJS](https://nodejs.org/en) installed.
-- An Internet Browser and a good internet connection.
+- An internet browser and a good internet connection.
   
-## PREREQUISITE 
+## Prerequisites 
 - Basic knowledge of Javascript.
-- Basic understanding of how Blockchain works.
+- Basic understanding of how the blockchain works.
 - Basic knowledge of [Solidity](https://docs.soliditylang.org).
   
-## What you will learn after this tutorial
+## What you will learn in this tutorial
 - Creation of a simple NodeJS webpack server.
 - Composing images and text in JS.
 - Generating QR codes in JS.
 - Saving files on the [IPFS](https://ipfs.tech/) storage using the [Pinata](https://www.pinata.cloud/) API.
  
-## What We’ll Be Building
+## What we will be building
 We will create a system that automatically generates an image that composes a generated QR code with the link we need (in our case, a link to a cinema ticket) and a text label. 
 
 The system automatically will be able to upload created image and metadata file for it to the IPFS manager pinata for further NFT generation.
@@ -142,7 +160,7 @@ Our first task will be to create an image that will consist of a QR code and tex
 
 [<p align="center"><img src="img/image1.png"></p>][def]
 
-In the process of implementing this project, I tried to find information on the Internet on how to compose an image (QR code) and the text I needed correctly, but I did not find a single article on this topic.
+In the process of implementing this project, I tried to find information on the internet on how to compose an image (QR code) and the text I needed correctly, but I did not find a single article on this topic.
 
 So I decided to do it all with the help of canvases.
 
@@ -466,6 +484,8 @@ We can see our transaction. Let's click on the ID of our NFT to view it.
 A view of our NFT.
 
 [<p align="center"><img src="img/image13.png"></p>][def]
+
+## Conclusion
 
 My greetings, we have successfully generated an image containing a QR code and text, uploaded it and its metadata file to the IPFS server through Pinata, and minted an NFT from this image.
 
